@@ -1,15 +1,10 @@
 import {Router} from"express"
-const { response } = require("./app")
-
+import UserController from "./app/controllers/UserController"
+import SessionController from "./app/controllers/SessionController"
 const routes = new Router()
 
-routes.get('/users',(request,response) => {
-    return response.json({message: "ola mundo"})
+routes.post('/users', UserController.store )
 
-})
+routes.post('/sessions', SessionController.store )
 
-routes.post('/category',(request,response) => {
-    return response.json({message: "bebidas"})
-
-})
-export default routes
+export default routes 
